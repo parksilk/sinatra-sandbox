@@ -3,33 +3,44 @@
     margin: 20px auto;
     width: 600px;
     padding: 0px 20px 20px 20px;
-    border: 1px dotted black;
+    border: 1px solid black;
   }
-  th {
+   {
     text-align: left;
   }
 </style>
 
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+  <h1>Choose a Vehicle!</h1>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
+
+  <form method="get" action="/cool_url">
+    <input type="radio" name="vehicle options" value="CBR 600F4i"> Honda CBR 600F4i<br>
+    <input type="radio" name="vehicle options" value="Ferari"> Ferari<br>
+    <input type="radio" name="vehicle options" value="Yugo"> Yugo<br>
+    <br><br>
+    <input type="text" name="name" placeholder="Enter your name"/>
+    <br><br>
+    <textarea rows=10 cols=40 name="description" placeholder="Describe any options you'd like to add to your vehicle"></textarea>
+    <input type="submit" value="Submit" style="color:blue"/>
+    <br><br>
+    Title: <input type="text" name="post[title]">
+    Price: <input type="text" name="post[price]">
+    Description: <br><textarea name="post[description]"></textarea>
+
+
+  </form>
+    <br><br>
+  <form method="post" action="/cool_url">
+    Would you like to receive more information on any of the following topics? (Please check all that apply.)<br><br>
+    <input type="checkbox" name="promotions" value="Marketing"> Marketing material<br>
+    <input type="checkbox" name="promotions" value="Contests"> Future contests<br>
+    <input type="checkbox" name="promotions" value="Travel"> Travel ideas<br>
+    <br>
+    <input type="email" name="email" placeholder="<email>"/>
+    <input type="submit" value="Submit" style="color:green"/>
+  </form>
+
+
+
 </div>
